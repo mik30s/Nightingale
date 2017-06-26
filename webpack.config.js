@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
+	watch: true,
 	// entry point of the app build
 	entry: './app/main.js',
 	// where to bundle everything
@@ -20,9 +21,14 @@ module.exports = {
 				test: /\.js$/,
 				loader: 'babel-loader',
 				exclude: /node_modules/
+			},
+			{
+				test: /\.scss$/,
+				loader: 'sass-loader'
 			}
 		]
 	},
+	//resolve: {alias:{vue: 'vue/dist/vue.js'}}
 	plugins: [
 		// // include electron as external dependecy
 		// new webpack.ExternalPlugin('commonjs', [

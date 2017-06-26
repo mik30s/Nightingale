@@ -1,54 +1,30 @@
 <template>
 	<!-- The HTML template for our component -->
-	<div id = "app">
-		<sidebar
-			:categories="categories"
-			v-on:category-selected="setSelectedCategory">
+	<div id="app">
+		<sidebar>
 		</sidebar>
-		<bookmark-list
-			:bookmarks="bookmarks | filterByCategory selectedCategory"
-			:category="categories">
-
-		</bookmark-list>
 	</div>
 </template>
 
 <script>
 	// GNARLY JS
-	import store from './store'
 	import Sidebar from './components/Sidebar.vue'
-	import BookmarkList from './components/BookmarkList.vue'
-	import {filterByCategory} from './filters'
+	import Content from './components/Content.vue'
 
 	export default {
 		components:{
-			Sidebar, BookmarkList
+			Sidebar, Content
 		},
 
 		data() {
-			return {
-				categories: {},
-				bookmarks: {},
-				selectedCategory: ''
-			}
-		},
-
-		filters: {
-			filterByCategory
+			return {}
 		},
 
 		created() {
-			store.on('data-updated', this.updateListings)
 		},
 
 		methods:{
-			updateListings(categories, bookmarks) {
-				this.categories = categories;
-				this.bookmarks = bookmarks;
-			},
-			setSelectedCategory(category) {
-				this.selectedCategory = category;
-			}
+		
 		}
 	}
 

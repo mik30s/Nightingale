@@ -8,7 +8,7 @@ function createWindow(window) {
 	window = new BrowserWindow({
 			width: 800, height: 600 
 		});
-	window.loadUrl("file://" + __dirname + "/index.html");
+	window.loadURL("file://" + __dirname + "/index.html");
 	window.on('closed', function(){
 		window = null
 	});
