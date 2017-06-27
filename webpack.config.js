@@ -25,10 +25,17 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				loader: 'sass-loader'
-			}
+			},
+			{
+		    	test: /\.styl$/,
+		    	loader: 'css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
+		  	}
 		]
 	},
-	//resolve: {alias:{vue: 'vue/dist/vue.js'}}
+	resolve: {alias:{
+		vue: 'vue/dist/vue.js', 
+		semantic: 'semantic-ui-css/semantic.min.js'
+	}},
 	plugins: [
 		// // include electron as external dependecy
 		// new webpack.ExternalPlugin('commonjs', [
@@ -41,6 +48,16 @@ module.exports = {
                     "plugins": ["transform-runtime"]
                 },
             }
-        })
+        }), 
+        new webpack.ProvidePlugin({
+		    // jquery
+		    $: 'jquery',
+		    jQuery: 'jquery',
+		    'window.jQuery': 'jquery',
+		    // semantic ui
+		    semantic: 'semantic-ui-css', 
+		    'semantic-ui': 'semantic-ui-css',
+		    Semantic: 'semantic-ui-css'
+		})
 	]
 }
