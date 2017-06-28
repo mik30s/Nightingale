@@ -6,6 +6,10 @@ import App from './App.vue';
 // import HomePage from './pages/HomePage.vue';
 // import AboutPage from './pages/AboutPage.vue';
 import ExamplePage from './pages/ExamplePage.vue';
+import BoostrapVue from 'bootstrap-vue';
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 const routes = [
   {

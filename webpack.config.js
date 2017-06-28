@@ -16,25 +16,30 @@ module.exports = {
 			{
 				test: /\.vue$/,
 				loader: 'vue-loader'
-			},
-			{
+			},{
 				test: /\.js$/,
 				loader: 'babel-loader',
 				exclude: /node_modules/
-			},
-			{
+			},{
 				test: /\.scss$/,
-				loader: 'sass-loader'
-			},
-			{
+				loader: 'sass-loader!autoprefixer!resolve-url'
+			},{
+				test: /\.css$/,
+				loader: 'css-loader'
+			},{
 		    	test: /\.styl$/,
 		    	loader: 'css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
+		  	},{
+		  		test: /\.(jpe?g|png|gif|svg)$/,
+		  		loader: 'url-loader?limit=10000&name=images/[name].[ext]'
 		  	}
 		]
 	},
 	resolve: {alias:{
 		vue: 'vue/dist/vue.js', 
-		semantic: 'semantic-ui-css/semantic.min.js'
+		semantic: 'semantic-ui-css/semantic.min.js',
+		images: path.join(__dirname, 'static/images'),
+		styles: path.join(__dirname, 'static/css')
 	}},
 	plugins: [
 		// // include electron as external dependecy

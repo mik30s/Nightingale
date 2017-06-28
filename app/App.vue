@@ -1,44 +1,14 @@
 <template>
-    <v-app id="example-1">
-        <v-navigation-drawer persistent v-model="drawer">
-            <v-list>
-                <v-list-tile>
-                    <v-list-tile-content>
-                        <v-list-tile-title >
-                            <span>Menu</span>
-                        </v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-                <v-divider></v-divider>
-                <v-list-item v-for="item in items" :key="item">
-                    <v-list-tile :href="item.href" :router="item.router">
-                        <v-list-tile-action>
-                            <v-icon light v-html="item.icon"></v-icon>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </v-list-item>
-            </v-list>
-        </v-navigation-drawer>
-        <v-toolbar class="indigo">
-            <v-toolbar-side-icon light @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-            <v-toolbar-title>Sidebar template</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-btn light icon @click.native.stop="openGithub()">
-                <v-icon>home</v-icon>
-            </v-btn>
-        </v-toolbar>
-        <main>
-            <v-fade-transition mode="out-in">
-                <router-view></router-view>
-            </v-fade-transition>
-        </main>
-        <v-footer class="indigo">
-            <span>© 2017 - disjfa</span>
-        </v-footer>
-    </v-app>
+    <div id="title-bar" class="app-bar">
+        <div class="window-title">
+            <p>Nightingale</p>
+        </div>
+        <div class="window-buttons">
+            <div class="title-bar-btn fs1" id="minimize-btn" data-icon=""></div>
+            <div class="title-bar-btn" id="maximize-btn"></div>
+            <div class="title-bar-btn" id="close-btn"></div>
+        </div>
+    </div>
 </template>
 
 <script type="text/babel">
@@ -71,11 +41,68 @@
       },
       openGithub() {
         window.open('https://github.com/disjfa/vuetify-sidebar-template');
+      },
+      close() {
+
+      },
+
+      minimize(){
+
+      },
+
+      maximize(){
+
       }
     }
   }
 </script>
 
-<style lang="stylus">
-    @import '../node_modules/vuetify/src/stylus/main';
+<style lang="scss">
+    @import '../static/theme_colors';
+    html, body {
+        width: 100%; height: 100%;
+        margin: 0px;
+    }
+    body{
+        background-color: darken($primary_color, 10%);
+        background-image: url('../static/images/bg.svg');
+        background-position: top right;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    #title-bar {
+        position: absolute;
+        top: 0px; left: 0px;
+        height: 32px; width: 100%;
+        background-color: $primary_color;
+        color: white;
+        -webkit-app-region:drag;
+        display: inline-flex;
+        flex-direction: row;
+
+         .window-buttons, .title-bar-btn {
+            -webkit-app-region: no-drag;
+        }
+
+        .window-title{
+            flex-grow: 2;
+        }
+
+        .window-buttons{
+            width: 135px;
+            height: 32px;
+            display: inline-flex;
+            flex-direction: row;
+
+            .title-bar-btn {
+                width: 45px;
+                height: 32px;
+                margin: 0px;
+            }
+            #minimize-btn{background: url('../static/images/win_close.svg');}
+            #close-btn:hover {
+                background-color: $red;
+            }
+        }
+    }
 </style>
