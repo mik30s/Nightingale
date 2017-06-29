@@ -32,6 +32,9 @@ module.exports = {
 		  	},{
 		  		test: /\.(jpe?g|png|gif|svg)$/,
 		  		loader: 'url-loader?limit=10000&name=images/[name].[ext]'
+		  	},{
+		  		test: /\.ttf$/,
+		  		loader: 'font-loader'
 		  	}
 		]
 	},
@@ -39,7 +42,8 @@ module.exports = {
 		vue: 'vue/dist/vue.js', 
 		semantic: 'semantic-ui-css/semantic.min.js',
 		images: path.join(__dirname, 'static/images'),
-		styles: path.join(__dirname, 'static/css')
+		styles: path.join(__dirname, 'static/css'),
+		electron: 'electron'
 	}},
 	plugins: [
 		// // include electron as external dependecy

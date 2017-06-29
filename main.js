@@ -4,6 +4,8 @@ const BrowserWindow = electron.BrowserWindow;
 
 let mainWindow;
 
+require('electron-reload')(__dirname);
+
 function createWindow(window) {
 	window = new BrowserWindow({
 			width: 1368, height: 766, frame: false

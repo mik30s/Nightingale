@@ -31,6 +31,7 @@ const router = new VueRouter({
 
 Vue.use(Vuetify);
 Vue.use(VueRouter);
+Vue.use(BoostrapVue);
 
 new Vue({ // eslint-disable-line no-new
   el: '#app',
