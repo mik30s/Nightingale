@@ -16,6 +16,10 @@
         </div>
         <div class="content">
             <NavBar></NavBar>
+            <SideBar></SideBar>
+            <div class="page-content">
+                <route-view></route-view>
+            </div>
         </div>
     </div>
 </template>
@@ -23,6 +27,7 @@
 <script type="text/babel">
   import Vue from 'vue';
   import NavBar from './components/NavBar.vue';
+  import SideBar from './components/SideBar.vue';
   
   const {remote} = window.require('electron');
   const win = remote.getCurrentWindow();
@@ -87,14 +92,16 @@
         // background-repeat: no-repeat;
         // background-size: 100% 100%;
         font-family: 'Noto Sans', sans-serif;
+        line-height: 1;
     }
     .app{
         width: 100%;
         height:100%;
+
         #title-bar {
             position: absolute;
             top: 0px; left: 0px;
-            height: 32px; width: 100%;
+            height: 2rem; width: 100%;
             background-color: $secondary_color;
             color: white;
             -webkit-app-region:drag;
@@ -111,7 +118,7 @@
                 vertical-align: middle;
                 text-align: left;
                 margin: auto;
-                margin-left: 25px;
+                margin-left: 0.5rem;
             }
 
             .window-buttons{
@@ -124,6 +131,10 @@
                     width: 45px;
                     height: 32px;
                     margin: 0px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
                     i {margin: 14px;}
                 }
                 #minimize-btn:hover,#maximize-btn:hover{
@@ -140,6 +151,13 @@
             position: fixed;
             width: 100%;
             height: 100%;
+
+            .page-content {
+              position: fixed;
+              height: 100%; width: 100%;
+              margin-left: 2.5rem;
+
+            }
         }
     }
 </style>
