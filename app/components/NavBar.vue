@@ -1,7 +1,7 @@
 <template>
     <b-navbar toggleable type="inverse">
 
-      <b-link class="navbar-brand" to="#">
+      <b-link v-on:click="openSideBar" class="navbar-brand" to="#">
         <span class="mdi mdi-menu"></span>
       </b-link>
      
@@ -9,13 +9,24 @@
 </template>
 
 <script type="text/babel">
-
+  import SideBar from './SideBar.vue';
+  const sidebar = SideBar;
+  
   export default {
     name : 'NavBar',
-    data(){ return {}; },
-    methods:[
+    data(){ 
+      return {
 
-    ]
+      }; 
+    },
+    components:{
+      'SideBar':SideBar
+    },
+    methods:{
+      openSideBar() {
+        sidebar.open();
+      }
+    }
   }
 </script>
 
@@ -28,9 +39,16 @@
       border-left: 0px;
       border-right: 0px;
       margin: 0px;
-      height: 2rem;
+      height: 3rem;
       padding: 0.5rem 0.5rem;
+      border-bottom: 1px solid black;
 
+      .navbar-brand{
+        position: absolute;
+        top: 0px;
+        font-size: 2rem;
+        margin: auto;
+      }
       .navbar-brand:hover{
         background-color: lighten($secondary_color,5%);
       }

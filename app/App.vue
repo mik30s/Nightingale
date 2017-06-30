@@ -55,7 +55,7 @@
       }
     },
     components:{
-        'NavBar': NavBar
+        'NavBar': NavBar, 'SideBar': SideBar
     },
     methods: {
       close() {
@@ -119,6 +119,7 @@
                 text-align: left;
                 margin: auto;
                 margin-left: 0.5rem;
+                font-size: 13px;
             }
 
             .window-buttons{
@@ -155,7 +156,7 @@
             .page-content {
               position: fixed;
               height: 100%; width: 100%;
-              margin-left: 2.5rem;
+              margin-left: 3rem;
 
             }
         }
