@@ -10,10 +10,10 @@ function createWindow(window) {
 	window = new BrowserWindow({
 			minWidth: 800, 
 			minHeight:600, 
-			width: 1368, 
-			height: 766, 
+			width: 800, 
+			height: 600, 
 			frame: false,
-			backgroundColor: 'rgb(51,51,51)'
+			backgroundColor: '#333333'
 		});
 	window.loadURL("file://" + __dirname + "/index.html");
 	window.on('closed', function(){

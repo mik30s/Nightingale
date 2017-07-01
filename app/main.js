@@ -6,6 +6,7 @@ import App from './App.vue';
 import BoostrapVue from 'bootstrap-vue';
 // pages to load
 import PracticePage from './pages/Practice.vue';
+import SettingsPage from './pages/Settings.vue';
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -15,6 +16,11 @@ const routes = [
     path: '/practice',
     name: 'practice',
     component: PracticePage,
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: SettingsPage,
   },
   {
     path: '*',

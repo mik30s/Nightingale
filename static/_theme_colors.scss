@@ -6,6 +6,14 @@ $secondary_color_accent: lighten(rgb(51,51,51), 5%);
 $secondary_color_strong: rgb(31,31,31);
 
 $red: rgb(192, 50, 50);
+$green: rgb(50,192,50);
+$blue: $primary_color;
+
+@mixin on_hover_selectable($color){
+	&:hover{
+		background-color:darken($color, 5%);
+	}
+}
 
 @mixin default_box_shadow() {
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.14);
@@ -20,4 +28,5 @@ $red: rgb(192, 50, 50);
 }
 input, button, textarea, :focus {
     outline: none; // You should add some other style for :focus to help UX/a11y
+    border-radius: 0px !important;
 }
