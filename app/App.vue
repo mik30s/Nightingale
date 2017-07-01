@@ -18,7 +18,7 @@
             <NavBar></NavBar>
             <SideBar></SideBar>
             <div class="page-content">
-                <route-view></route-view>
+                <router-view></router-view>
             </div>
         </div>
     </div>
@@ -28,7 +28,9 @@
   import Vue from 'vue';
   import NavBar from './components/NavBar.vue';
   import SideBar from './components/SideBar.vue';
+  import PracticePage from './pages/Practice.vue';
   
+  window.bus = new Vue({});
   const {remote} = window.require('electron');
   const win = remote.getCurrentWindow();
 
@@ -36,22 +38,7 @@
     data () {
       return {
         drawer: true,
-        items: [{
-          href: 'home',
-          router: true,
-          title: 'Home',
-          icon: 'home',
-        }, {
-          href: 'examples',
-          router: true,
-          title: 'Example',
-          icon: 'extension',
-        }, {
-          href: 'about',
-          router: true,
-          title: 'About',
-          icon: 'domain',
-        }]
+        navToggle: false,
       }
     },
     components:{
@@ -72,7 +59,9 @@
         } else{
           win.unmaximize();
         }
-      }
+      },
+
+      toggleNav(){alert("in App.vue"); this.navToggle = (this.navToggle === true) ? false : true; }
     }
   }
 </script>

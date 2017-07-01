@@ -8,8 +8,12 @@ require('electron-reload')(__dirname);
 
 function createWindow(window) {
 	window = new BrowserWindow({
-			minWidth: 800, minHeight:600, 
-			width: 1368, height: 766, frame: false
+			minWidth: 800, 
+			minHeight:600, 
+			width: 1368, 
+			height: 766, 
+			frame: false,
+			backgroundColor: 'rgb(51,51,51)'
 		});
 	window.loadURL("file://" + __dirname + "/index.html");
 	window.on('closed', function(){

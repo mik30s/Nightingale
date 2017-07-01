@@ -1,7 +1,7 @@
 <template>
     <b-navbar toggleable type="inverse">
 
-      <b-link v-on:click="openSideBar" class="navbar-brand" to="#">
+      <b-link v-on:click="toggleSideBar" class="navbar-brand">
         <span class="mdi mdi-menu"></span>
       </b-link>
      
@@ -9,22 +9,29 @@
 </template>
 
 <script type="text/babel">
+  import Vue from 'vue';
   import SideBar from './SideBar.vue';
-  const sidebar = SideBar;
   
   export default {
     name : 'NavBar',
+    isOpen: false,
     data(){ 
       return {
-
+        isOpen: false
       }; 
     },
     components:{
       'SideBar':SideBar
     },
     methods:{
-      openSideBar() {
-        sidebar.open();
+      toggleSideBar() {
+        if (!this.isOpen) {
+          this.isOpen = true;
+        }
+        else{
+          this.isOpen = false;
+        }
+        bus.$emit('navBtnClicked')
       }
     }
   }
@@ -39,14 +46,14 @@
       border-left: 0px;
       border-right: 0px;
       margin: 0px;
-      height: 3rem;
-      padding: 0.5rem 0.5rem;
+      height: 2rem;
+      padding: 0.5rem 0.6rem;
       border-bottom: 1px solid black;
 
       .navbar-brand{
         position: absolute;
         top: 0px;
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin: auto;
       }
       .navbar-brand:hover{

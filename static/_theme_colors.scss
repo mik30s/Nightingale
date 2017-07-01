@@ -7,3 +7,17 @@ $secondary_color_strong: rgb(31,31,31);
 
 $red: rgb(192, 50, 50);
 
+@mixin default_box_shadow() {
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.14);
+}
+
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+input, button, textarea, :focus {
+    outline: none; // You should add some other style for :focus to help UX/a11y
+}
