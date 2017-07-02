@@ -92,8 +92,7 @@ export default {
 	name : 'SideBar',
 	isOpen: false,
 	created () {
-		window.bus.$on('navBtnClicked', 
-			() => this.toggleNav())
+		window.bus.$on('navBtnClicked', () => this.toggleNav())
 	},
 	data(){
 		return {
@@ -107,7 +106,7 @@ export default {
 			],
 			appMenuItems:[
 				{icon: 'mdi-settings', name: 'Settings', onClick: () => {this.$router.push('settings');}},
-				{icon: 'mdi-logout',   name: 'Logout', onClick: () => {this.$router.push('logout');} }
+				{icon: 'mdi-logout',   name: 'Logout', onClick: () => {window.bus.$emit('logoutBtnClicked');} }
 			]
 		}
 	},

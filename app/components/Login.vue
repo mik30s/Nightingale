@@ -1,5 +1,5 @@
 <template>
-	<div id="login" class="login" v-bind:class="{content_hidden : isLoggedIn}">
+	<div id="login" class="login" v-bind:class="{content_hidden : !isNotLoggedIn}">
 		<div class="login-form-wrapper animated slideInDown">
 			<b-form>
 				<div class="logo"></div>
@@ -14,25 +14,26 @@
 </template>
 
 <script>
+
 export default{
+	created(){
+		window.bus.$on("logoutBtnClicked", () => this.logout());
+	},
 	data(){
 		return{
-			isLoggedIn: false,
+			isNotLoggedIn: true,
 			username: '',
 			password: '',
 		};
 	},
 	methods:{
 		// Logs a user in.
-		login(){
-			alert('logining in!');
-			//
-			this.isLoggedIn = true;
-
+		login() {
+			if(this.isNotLoggedIn === true) this.isNotLoggedIn = false;
 		},
 		// Logs a user out.
-		logout(){
-			this.isLoggedIn = false;
+		logout() {
+			if(this.isNotLoggedIn === false) this.isNotLoggedIn = true;
 		}
 	}
 
