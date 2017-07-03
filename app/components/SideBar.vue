@@ -85,6 +85,7 @@
 
 	}
 </style>
+
 <script>
 import Vue from 'vue';
 
@@ -98,11 +99,12 @@ export default {
 		return {
 			isOpen: false,
 			simMenuItems:[
-				{icon:'mdi-account ',          name:'User',      onClick: () => {  }},
-				{icon:'mdi-timer',             name:'Practice',  onClick: () => { this.$router.push('practice'); }}, 
-				{icon:'mdi-medical-bag',       name:'Equipment', onClick: () => { this.$router.push('equipment'); }}, 
-				{icon:'mdi-chart-bar',         name:'Review',    onClick: () => { this.$router.push('review');}},
-				{icon:'mdi-book-open-variant', name:'Tutorials', onClick: () => { this.$router.push('tutorials');}},
+				{icon:'mdi-account ',          	name:'User',      	onClick: () => {  }},
+				{icon:'mdi-timer',             	name:'Practice',  	onClick: () => { this.$router.push('practice'); }}, 
+				{icon:'mdi-medical-bag',       	name:'Equipment', 	onClick: () => { this.$router.push('equipment'); }}, 
+				{icon:'mdi-test-tube',       	name:'Simulation', 	onClick: () => { this.$router.push('simulation'); }}, 
+				{icon:'mdi-chart-bar',         	name:'Review',    	onClick: () => { this.$router.push('review');}},
+				{icon:'mdi-book-open-variant', 	name:'Tutorials', 	onClick: () => { this.$router.push('tutorials');}},
 			],
 			appMenuItems:[
 				{icon: 'mdi-settings', name: 'Settings', onClick: () => {this.$router.push('settings');}},

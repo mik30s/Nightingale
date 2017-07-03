@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        <Login></Login>
+       <!--  <Login></Login> -->
         <div class="content">
             <NavBar></NavBar>
             <SideBar></SideBar>
@@ -44,7 +44,7 @@
       }
     },
     components:{
-        'NavBar': NavBar, 'SideBar': SideBar, 'Login': Login
+        'NavBar': NavBar, 'SideBar': SideBar, //'Login': Login
     },
     methods: {
       close() {

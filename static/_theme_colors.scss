@@ -19,6 +19,12 @@ $blue: $primary_color;
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.14);
 }
 
+@mixin default_page_setup() {
+	position: relative;
+	margin-left: 0em;
+	margin-right: 3em;
+}
+
 :not(input):not(textarea),
 :not(input):not(textarea)::after,
 :not(input):not(textarea)::before {
@@ -26,7 +32,7 @@ $blue: $primary_color;
     user-select: none;
     cursor: default;
 }
-input, button, textarea, :focus {
+input, button, textarea, :focus, .card {
     outline: none; // You should add some other style for :focus to help UX/a11y
     border-radius: 0px !important;
 }
